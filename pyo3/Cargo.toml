@@ -1,0 +1,47 @@
+[package]
+name = "pyo3"
+version = "0.2.5"
+description = "Bindings to Python interpreter"
+authors = ["PyO3 Project and Contributors"]
+readme = "README.md"
+keywords = ["pyo3", "python", "cpython"]
+homepage = "https://github.com/pyo3/pyo3"
+repository = "https://github.com/pyo3/pyo3.git"
+documentation = "https://pyo3.github.io/pyo3/pyo3/"
+categories = ["api-bindings", "development-tools::ffi"]
+license = "Apache-2.0"
+exclude = [".gitignore", ".travis.yml", ".cargo/config", "appveyor.yml"]
+build = "build.rs"
+
+[badges]
+travis-ci = { repository = "PyO3/pyo3", branch = "master" }
+appveyor = { repository = "PyO3/pyo3" }
+codecov = { repository = "PyO3/pyo3", branch = "master", service = "github" }
+
+[dependencies]
+log = "0.4"
+libc = "0.2"
+spin = "0.4.6"
+num-traits = "0.2"
+pyo3cls = { version = "^0.2.1" }
+
+[build-dependencies]
+regex = "0.2"
+version_check = "0.1"
+
+[features]
+default = []
+
+# Use this feature when building python2 binding.
+python2 = []
+
+# Use this feature when building python3 binding.
+python3 = []
+
+# Enable additional features that require nightly rust
+#nightly = []
+
+# Use this feature when building an extension module.
+# It tells the linker to keep the python symbols unresolved,
+# so that the module can also be used with statically linked python interpreters.
+extension-module = []
